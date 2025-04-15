@@ -18,7 +18,21 @@ export class PlayerStats extends Component {
     public workValue : number = 100;
 
     updateFamily(newValue : number) {
-        this.familyBar.progress = 0.8;
+        this.familyValue = newValue;
+        if (newValue > 0) this.familyBar.progress = newValue / 100;
+        else {
+            this.familyBar.progress = 0;
+            this.familyValue = 0;
+        }
+    }
+
+    updateWork(newValue : number) {
+        this.workValue = newValue;
+        if (newValue > 0) this.workBar.progress = this.workValue / 100;
+        else {
+            this.workBar.progress = 0;
+            this.workValue = 0;
+        }
     }
 
     
