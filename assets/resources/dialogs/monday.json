@@ -1,0 +1,21 @@
+[
+    {
+        "id": "intro",
+        "location": "bedroom",
+        "requiredStats": {},
+        "lines": [
+            {
+                "order": 1,
+                "image": "db://assets/characters/dialog/father-neutral",
+                "speaker": "Father",
+                "line": "Peraphs is time to wake up"
+            },
+            {
+                "order": 2,
+                "image": "db://assets/characters/dialog/system",
+                "speaker": "Clock",
+                "line": "Coo coo coo"
+            }
+        ]
+    }
+]
