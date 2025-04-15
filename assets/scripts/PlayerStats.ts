@@ -35,17 +35,13 @@ export class PlayerStats extends Component {
         }
     }
 
-    
-    
-    public money : number = 0;
-    /*start() {
-
-    }*/
+    start() {
+        this.updateFamily(20);
+        this.updateWork(80);
+    }
 
     /*
     update(deltaTime: number) {
         
     }*/
 }
-
-
