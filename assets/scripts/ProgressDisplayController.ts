@@ -15,7 +15,7 @@ export class ProgressDisplayController extends Component {
         tooltip: "Here goes the day label"
     })
     public dayLabel: Label;
-    public day : Day = 'FRIDAY';
+    public day : Day = 'MONDAY';
 
 
     @property({

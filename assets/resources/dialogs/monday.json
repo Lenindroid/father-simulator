@@ -6,13 +6,13 @@
         "lines": [
             {
                 "order": 1,
-                "image": "db://assets/characters/dialog/father-neutral",
+                "image": "characters/dialog/father-neutral/spriteFrame",
                 "speaker": "Father",
                 "line": "Peraphs is time to wake up"
             },
             {
                 "order": 2,
-                "image": "db://assets/characters/dialog/system",
+                "image": "characters/dialog/system/spriteFrame",
                 "speaker": "Clock",
                 "line": "Coo coo coo"
             }
