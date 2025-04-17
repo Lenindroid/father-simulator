@@ -1,4 +1,4 @@
-import { _decorator, Button, Component, Label, Node } from 'cc';
+import { _decorator, Button, Component, JsonAsset, Label, Node, resources } from 'cc';
 const { ccclass, property } = _decorator;
 
 type Day = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY';
@@ -24,6 +24,8 @@ interface DecisionObject {
 
 @ccclass('Decision')
 export class Decision extends Component {
+    private currentDecision : DecisionObject;
+
     @property({
         type: Label,
         tooltip: 'Context of the decision'
@@ -55,7 +57,13 @@ export class Decision extends Component {
     public textRight : Label;
 
     start() {
-
+        resources.load('dialogs/decision', JsonAsset, (err, data) => {
+            if (err) {
+                console.error('There was an error while trying to access to the dialogs:', err);
+                return;
+            }
+            const dialogsJSON = data.json;
+        })
     }
 
     update(deltaTime: number) {
