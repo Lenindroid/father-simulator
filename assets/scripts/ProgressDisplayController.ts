@@ -42,6 +42,12 @@ export class ProgressDisplayController extends Component {
         this.moneyLabel.string = "$" + this.money;
     }
 
+    updateMoney(newValue : number) {
+        this.money = newValue;
+        if (this.money < 0) this.money = 0;
+        this.moneyLabel.string = "$" + this.money;
+    }
+
     update(deltaTime: number) {
         
     }

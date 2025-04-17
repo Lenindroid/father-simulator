@@ -18,5 +18,26 @@
             "work": 5,
             "money": 10
         }
+    },
+
+    {
+        "id": "peku-decision",
+        "location": "internet",
+        "day": "MONDAY",
+        "hour": 10,
+        "minute": 12,
+        "question": "Would you like to say 'peku' to Nancy?",
+        "firstOption": "Obvio microbio",
+        "secondOption": "Nel pastel",
+        "firstOptionStats": {
+            "family": 30,
+            "work": 10,
+            "money": 1000
+        },
+        "secondOptionStats": {
+            "family": -50,
+            "work": 30,
+            "money": -10
+        }
     }
 ]
