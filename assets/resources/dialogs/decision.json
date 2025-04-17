@@ -1,0 +1,22 @@
+[
+    {
+        "id": "first-decision",
+        "location": "bedroom",
+        "day": "TUESDAY",
+        "hour": 6,
+        "minute": 0,
+        "question": "Would you like to wait for your son to wake up?",
+        "firstOption": "Yes",
+        "secondOption": "No",
+        "firstOptionStats": {
+            "family": 10,
+            "work": -20,
+            "money": 0
+        },
+        "secondOptionStats": {
+            "family": -20,
+            "work": 5,
+            "money": 10
+        }
+    }
+]
