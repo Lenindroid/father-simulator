@@ -19,6 +19,12 @@ interface DialogObject {
 @ccclass('Dialog')
 export class Dialog extends Component {
     @property({
+        type: Node, 
+        tooltip: 'Dialog node'
+    })
+    public dialogNode: Node;
+
+    @property({
         type: Sprite,
         tooltip: 'Here goes the face of the character talking'
     })
@@ -82,8 +88,12 @@ export class Dialog extends Component {
 
     //Just like an event listener 
     continuePressed() {
-        this.currentLine++;
-        this.updateDialogBox(this.currentDialog.lines[this.currentLine]);
+        if (this.currentLine + 1  == this.currentDialog.lines.length) {
+            this.dialogNode.active = false;
+        } else {
+            this.currentLine++;
+            this.updateDialogBox(this.currentDialog.lines[this.currentLine]);
+        }
     }
 
     update(deltaTime: number) {

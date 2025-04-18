@@ -29,6 +29,12 @@ export class Decision extends Component {
     private currentDecision : DecisionObject;
 
     @property({
+        type: Node,
+        tooltip: 'Decision node'
+    })
+    public decisionNode : Node;
+
+    @property({
         type: Label,
         tooltip: 'Context of the decision'
     })
@@ -91,6 +97,7 @@ export class Decision extends Component {
 
         const newMoney : number = this.progressNodeScript.money + this.currentDecision.firstOptionStats.money;
         this.progressNodeScript.updateMoney(newMoney);
+        this.decisionNode.active = false;
     }
 
     rightPressed() {
@@ -102,6 +109,7 @@ export class Decision extends Component {
 
         const newMoney : number = this.progressNodeScript.money + this.currentDecision.secondOptionStats.money;
         this.progressNodeScript.updateMoney(newMoney);
+        this.decisionNode.active = false;
     }
 
     update(deltaTime: number) {
