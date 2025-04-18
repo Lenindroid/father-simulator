@@ -53,12 +53,7 @@ export class Dialog extends Component {
     private currentDialog : DialogObject;
 
     start() {
-        const progressScript = this.progressNode.getComponent(ProgressDisplayController);
-        const day = progressScript.day.toLowerCase();
-
-        //Loading dialogs
-        const dialogPath = `dialogs/${day}`
-        resources.load(dialogPath, JsonAsset, (err, data) => {
+        resources.load('data/dialogs', JsonAsset, (err, data) => {
             if (err) {
                 console.error('There was an error while trying to access to the dialogs:', err);
                 return;

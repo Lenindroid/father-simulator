@@ -15,6 +15,18 @@
                 "image": "characters/dialog/system/spriteFrame",
                 "speaker": "Clock",
                 "line": "Coo coo coo"
+            },
+            {
+                "order": 3,
+                "image": "characters/dialog/system/spriteFrame",
+                "speaker": "Yo",
+                "line": "LOS TOMATES DICEN NOO SEEEEE"
+            },
+            {
+                "order": 4,
+                "image": "characters/dialog/father-neutral/spriteFrame",
+                "speaker": "Yo",
+                "line": "LAS LENTEJAS DICEN PENDEJAA"
             }
         ]
     }

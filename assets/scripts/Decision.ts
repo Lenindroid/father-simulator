@@ -65,13 +65,13 @@ export class Decision extends Component {
         this.playerStatsScript = this.playerStatsNode.getComponent(PlayerStats);
         this.progressNodeScript = this.progressNode.getComponent(ProgressDisplayController);
 
-        resources.load('dialogs/decision', JsonAsset, (err, data) => {
+        resources.load('data/decisions', JsonAsset, (err, data) => {
             if (err) {
                 console.error('There was an error while trying to access to the dialogs:', err);
                 return;
             }
             const decisionsJSON = data.json;
-            this.currentDecision = decisionsJSON[0];
+            this.currentDecision = decisionsJSON[1];
             this.renderQuestion(this.currentDecision);
         })
     }

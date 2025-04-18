@@ -1,0 +1,24 @@
+[
+    {
+        "id": "bedroom",
+        "locked": false,
+        "image": "backgrounds/BackgroundBedroom/spriteFrame",
+        "dialogs": [
+            {
+                "id": "intro",
+                "locked": false
+            }
+        ]
+    },
+    {
+        "id": "son-bedroom",
+        "locked": true,
+        "image": "backgrounds/SonBedroom/spriteFrame",
+        "dialogs": [
+            {
+                "id": "intro",
+                "locked": false
+            }
+        ]
+    }
+]
