@@ -51,6 +51,24 @@ export class ProgressDisplayController extends Component {
     update(deltaTime: number) {
         
     }
+
+    public getTimeOfDay(clock: Clock): 'morning' | 'afternoon' | 'night' {
+        const { period, hour } = clock;
+    
+        if (period === 'AM') {
+            if (hour >= 5 && hour < 12) {
+                return 'morning';
+            } else {
+                return 'night'; // e.g., 12 AM to 4 AM
+            }
+        } else { // PM
+            if (hour >= 12 && hour < 6) {
+                return 'afternoon';
+            } else {
+                return 'night';
+            }
+        }
+    }
 }
 
 

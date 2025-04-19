@@ -2,7 +2,98 @@
     {
         "id": "bedroom",
         "locked": false,
-        "image": "backgrounds/BackgroundBedroom/spriteFrame",
+        "image": {
+            "morning": "backgrounds/BackgroundBedroom/spriteFrame",
+            "afternoon": "backgrounds/BackgroundBedroom/spriteFrame",
+            "night": "backgrounds/BackgroundBedroom/spriteFrame"
+        },
+        "dialogs": [
+            {
+                "id": "intro",
+                "locked": false
+            }
+        ],
+        "requiredStats": {
+            "day": ["MONDAY", "TUESDAY", "WEDNESDAY" , "THURSDAY", "FRIDAY"],
+            "pm": {
+                "minimum": 4,
+                "maximum": 12
+            },
+            "am": {
+                "minimum": 1, 
+                "maximum": 11
+            },
+            "minimumWork": 0,
+            "minimumFamily": 0,
+            "money": 0
+        }
+    },
+    {
+        "id": "son-bedroom",
+        "locked": true,
+        "image": {
+            "morning": "backgrounds/SonBedroom/spriteFrame",
+            "afternoon": "backgrounds/SonBedroom/spriteFrame",
+            "night": "backgrounds/SonBedroom/spriteFrame"
+        },
+        "dialogs": [
+            {
+                "id": "intro",
+                "locked": false
+            }
+        ],
+        "requiredStats": {
+            "day": ["MONDAY", "TUESDAY", "WEDNESDAY" , "THURSDAY", "FRIDAY"],
+            "pm": {
+                "minimum": 4,
+                "maximum": 12
+            },
+            "am": {
+                "minimum": 1, 
+                "maximum": 11
+            },
+            "minimumWork": 0,
+            "minimumFamily": 0,
+            "money": 0
+        }
+    },
+    {
+        "id": "kitchen",
+        "locked": true,
+        "image": {
+            "morning": "backgrounds/SonBedroom/spriteFrame",
+            "afternoon": "backgrounds/SonBedroom/spriteFrame",
+            "night": "backgrounds/SonBedroom/spriteFrame"
+        },
+        "dialogs": [
+            {
+                "id": "intro",
+                "locked": false
+            }
+        ],
+        "requiredStats": {
+            "day": ["MONDAY", "TUESDAY", "WEDNESDAY" , "THURSDAY", "FRIDAY"],
+            "pm": {
+                "minimum": 4,
+                "maximum": 12
+            },
+            "am": {
+                "minimum": 1, 
+                "maximum": 11
+            },
+            "minimumWork": 0,
+            "minimumFamily": 0,
+            "money": 0
+        }
+    },
+    {
+        "id": "living-room",
+        "locked": true,
+        "image": {
+            "morning": "backgrounds/SonBedroom/spriteFrame",
+            "afternoon": "backgrounds/SonBedroom/spriteFrame",
+            "night": "backgrounds/SonBedroom/spriteFrame"
+        },
         "dialogs": [
             {
                 "id": "intro",
@@ -11,14 +102,61 @@
         ]
     },
     {
-        "id": "son-bedroom",
+        "id": "kitchen",
         "locked": true,
-        "image": "backgrounds/SonBedroom/spriteFrame",
+        "image": {
+            "morning": "backgrounds/SonBedroom/spriteFrame",
+            "afternoon": "backgrounds/SonBedroom/spriteFrame",
+            "night": "backgrounds/SonBedroom/spriteFrame"
+        },
         "dialogs": [
             {
                 "id": "intro",
                 "locked": false
             }
-        ]
+        ],
+        "requiredStats": {
+            "day": ["MONDAY", "TUESDAY", "WEDNESDAY" , "THURSDAY", "FRIDAY"],
+            "pm": {
+                "minimum": 4,
+                "maximum": 12
+            },
+            "am": {
+                "minimum": 1, 
+                "maximum": 11
+            },
+            "minimumWork": 0,
+            "minimumFamily": 0,
+            "money": 0
+        }
+    },
+    {
+        "id": "office",
+        "locked": true,
+        "image": {
+            "morning": "backgrounds/SonBedroom/spriteFrame",
+            "afternoon": "backgrounds/SonBedroom/spriteFrame",
+            "night": "backgrounds/SonBedroom/spriteFrame"
+        },
+        "dialogs": [
+            {
+                "id": "intro",
+                "locked": false
+            }
+        ],
+        "requiredStats": {
+            "day": ["MONDAY", "TUESDAY", "WEDNESDAY" , "THURSDAY", "FRIDAY"],
+            "pm": {
+                "minimum": 4,
+                "maximum": 12
+            },
+            "am": {
+                "minimum": 1, 
+                "maximum": 11
+            },
+            "minimumWork": 0,
+            "minimumFamily": 0,
+            "money": 0
+        }
     }
 ]
