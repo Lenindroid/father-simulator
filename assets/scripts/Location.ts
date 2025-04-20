@@ -1,9 +1,12 @@
-import { _decorator, Component, JsonAsset, Label, Node, resources, Sprite, SpriteFrame } from 'cc';
-import { ProgressDisplayController } from './ProgressDisplayController';
+import { _decorator, Button, Component, JsonAsset, Label, Node, resources, Sprite, SpriteFrame } from 'cc';
+import { ProgressDisplayController, Day } from './ProgressDisplayController';
 import { PlayerStats } from './PlayerStats';
 const { ccclass, property } = _decorator;
 
-type WeekDay = "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY" | "SUNDAY";
+type LocationButtonData = {
+    button: Button,
+    locationID: string
+};
 
 interface DialogReference {
     id: string;
@@ -16,12 +19,12 @@ interface TimeRange {
 }
 
 interface RequiredStats {
-    day: WeekDay[];
+    day: Day[];
     pm: TimeRange;
     am: TimeRange;
     minimumWork: number;
     minimumFamily: number;
-    money: number;
+    minimumMoney: number;
 }
 
 
@@ -34,7 +37,7 @@ interface Room {
         night: string;
     };
     dialogs: DialogReference[];
-    stats : RequiredStats;
+    requiredStats : RequiredStats;
 }
 
 
@@ -84,16 +87,101 @@ export class Location extends Component {
     })
     private environmentNode : Label;
 
+    @property({
+        type: Button,
+        tooltip: 'Bedroom button'
+    })
+    private bedroomButton : Button;
+
+    @property({
+        type: Button,
+        tooltip: 'Son button'
+    })
+    private sonBedroomButton : Button;
+
+    @property({
+        type: Button,
+        tooltip: 'Kitchen button'
+    })
+    private kitchenButton : Button;
+
+    @property({
+        type: Button,
+        tooltip: 'Living room button'
+    })
+    private livingRoomButton : Button;
+
+    @property({
+        type: Button,
+        tooltip: 'Living room button'
+    })
+    private officeButton : Button;
+    
+    private locationButtons: LocationButtonData[] = [];
+
+    public location : Room;
+      
+
     start() {
+        this.locationButtons.push(
+            { button: this.bedroomButton, locationID: 'bedroom' },
+            { button: this.sonBedroomButton, locationID: 'son-bedroom' },
+            { button: this.kitchenButton, locationID: 'kitchen' },
+            { button: this.livingRoomButton, locationID: 'living-room' },
+            { button: this.officeButton, locationID: 'office' },
+        );
         this.progressScript = this.progressNode.getComponent(ProgressDisplayController);
-        this.changeLocation('son-bedroom')
+        this.playerStatsScript = this.playerStatsNode.getComponent(PlayerStats);
     }
 
     update(deltaTime: number) {
         
     }
 
+    checkRoom(room : Room) : boolean {
+        if (room.locked) return false;
+        if (!(room.requiredStats.day.includes(this.progressScript.day))) return false;
+
+        if (this.progressScript.clock.period == 'AM') {
+            if (!(this.progressScript.clock.hour >= room.requiredStats.am.minimum && this.progressScript.clock.hour < room.requiredStats.am.maximum)) {
+                return false;
+            }
+        } else {
+            if (!(this.progressScript.clock.hour >= room.requiredStats.pm.minimum && this.progressScript.clock.hour < room.requiredStats.pm.maximum)) {
+                return false;
+            }
+        }
+
+        if (this.playerStatsScript.workValue < room.requiredStats.minimumWork) return false;
+        if (this.playerStatsScript.familyValue < room.requiredStats.minimumFamily) return false;
+        if (this.progressScript.money < room.requiredStats.minimumMoney) return false;
+
+        return true;
+    }
+
     displayLocations() {
+        resources.load('data/places', JsonAsset, (err, data)=> {
+            this.locationButtons.forEach((button : LocationButtonData) => {
+
+                if(err) {
+                    console.error(err);
+                    return;
+                } 
+
+                const locations: Room[] = data.json as Room[];
+
+                const room = locations.find((element) => element.id === button.locationID);
+
+                if (!room) {
+                    console.error(`Room with id ${button.locationID} not found`);
+                    return;
+                }
+
+                if(room.locked) button.button.interactable = false;
+                else button.button.interactable = true;
+        
+            });
+        });
         this.locationsUI.active = true;
         this.displayLocationsInside();
     }
@@ -122,13 +210,12 @@ export class Location extends Component {
             }
 
             const locations = data.json;
-            let location : Room;
 
             locations.forEach((element : Room) => {
-                if(element.id == id) location = element;
+                if(element.id == id) this.location = element;
             });
 
-            let roomPath : string = location.image[this.progressScript.getTimeOfDay(this.progressScript.clock)];
+            let roomPath : string = this.location.image[this.progressScript.getTimeOfDay(this.progressScript.clock)];
 
             resources.load(roomPath, SpriteFrame, (err, spriteFrame)=> {
                 if (err) {

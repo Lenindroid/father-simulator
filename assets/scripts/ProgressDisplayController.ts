@@ -1,7 +1,7 @@
 import { _decorator, Component, Label, Node } from 'cc';
 const { ccclass, property } = _decorator;
 type Period = 'AM' | 'PM';
-type Day = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY';
+export type Day = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY';
 type Clock = {
     period: Period,
     hour: number,

@@ -3723,6 +3723,9 @@
     "progressNode": {
       "__id__": 77
     },
+    "playerStatsNode": {
+      "__id__": 75
+    },
     "insideLocationsUI": {
       "__id__": 105
     },
@@ -3731,6 +3734,15 @@
     },
     "environmentNode": {
       "__id__": 96
+    },
+    "kitchenButton": {
+      "__id__": 126
+    },
+    "livingRoomButton": {
+      "__id__": 133
+    },
+    "officeButton": {
+      "__id__": 158
     },
     "_id": "c3/6rxK39MXKZsziR/5KHG"
   },
@@ -5252,7 +5264,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "LivingRoomButton-",
+    "_name": "LivingRoomButton",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
