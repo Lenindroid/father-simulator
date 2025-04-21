@@ -159,38 +159,42 @@ export class Location extends Component {
         return true;
     }
 
-    displayLocations() {
+    private updateLocationButtons() {
         resources.load('data/places', JsonAsset, (err, data)=> {
+            if (err) {
+                console.error(err);
+                return;
+            }
+    
+            const locations: Room[] = data.json as Room[];
+    
             this.locationButtons.forEach((button : LocationButtonData) => {
-
-                if(err) {
-                    console.error(err);
-                    return;
-                } 
-
-                const locations: Room[] = data.json as Room[];
-
                 const room = locations.find((element) => element.id === button.locationID);
-
                 if (!room) {
                     console.error(`Room with id ${button.locationID} not found`);
                     return;
                 }
-
-                if(room.locked) button.button.interactable = false;
-                else button.button.interactable = true;
-        
+    
+                button.button.interactable = this.checkRoom(room);
+                console.log(`[updateLocationButtons] ${room.id}: ${button.button.interactable}`);
             });
         });
+    }
+    
+    displayLocations() {
+        this.updateLocationButtons();
         this.locationsUI.active = true;
         this.displayLocationsInside();
     }
-
+    
     displayLocationsOutside() {
         this.insideLocationsUI.active = false;
         this.outsideLocationsUI.active = true;
         this.environmentNode.string = 'Outside';
+    
+        this.updateLocationButtons();
     }
+    
 
     displayLocationsInside() {
         this.outsideLocationsUI.active = false;
@@ -226,6 +230,28 @@ export class Location extends Component {
             });
         });
     }
+
+    //Buttons alert
+    goToBedroom() {
+        this.changeLocation('bedroom');
+    }
+
+    goToSonRoom() {
+        this.changeLocation('son-bedroom');
+    }
+
+    goToKitchen() {
+        this.changeLocation('kitchen');
+    }
+    
+    goToLivingRoom() {
+        this.changeLocation('living-room');
+    }
+    
+    goToOffice() {
+        this.changeLocation('office');
+    }
+    
 }
 
 

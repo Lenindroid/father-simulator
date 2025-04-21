@@ -30,7 +30,7 @@
     },
     {
         "id": "son-bedroom",
-        "locked": true,
+        "locked": false,
         "image": {
             "morning": "backgrounds/SonBedroom/spriteFrame",
             "afternoon": "backgrounds/SonBedroom/spriteFrame",
@@ -45,12 +45,12 @@
         "requiredStats": {
             "day": ["MONDAY", "TUESDAY", "WEDNESDAY" , "THURSDAY", "FRIDAY"],
             "pm": {
-                "minimum": 4,
+                "minimum": 0,
                 "maximum": 12
             },
             "am": {
-                "minimum": 1, 
-                "maximum": 11
+                "minimum": 0, 
+                "maximum": 12
             },
             "minimumWork": 0,
             "minimumFamily": 0,
@@ -88,21 +88,6 @@
     },
     {
         "id": "living-room",
-        "locked": true,
-        "image": {
-            "morning": "backgrounds/SonBedroom/spriteFrame",
-            "afternoon": "backgrounds/SonBedroom/spriteFrame",
-            "night": "backgrounds/SonBedroom/spriteFrame"
-        },
-        "dialogs": [
-            {
-                "id": "intro",
-                "locked": false
-            }
-        ]
-    },
-    {
-        "id": "kitchen",
         "locked": true,
         "image": {
             "morning": "backgrounds/SonBedroom/spriteFrame",
