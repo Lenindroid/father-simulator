@@ -117,11 +117,11 @@
     },
     {
         "id": "office",
-        "locked": true,
+        "locked": false,
         "image": {
-            "morning": "backgrounds/SonBedroom/spriteFrame",
-            "afternoon": "backgrounds/SonBedroom/spriteFrame",
-            "night": "backgrounds/SonBedroom/spriteFrame"
+            "morning": "backgrounds/Office/spriteFrame",
+            "afternoon": "backgrounds/Office/spriteFrame",
+            "night": "backgrounds/Office/spriteFrame"
         },
         "dialogs": [
             {
