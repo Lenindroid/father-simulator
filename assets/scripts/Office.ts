@@ -12,6 +12,12 @@ export class Office extends Component {
     })
     private paperworkNode : Node;
 
+    @property({
+        type: Node,
+        tooltip: 'The general journal node'
+    })
+    private generalJournal : Node;
+
     start() {
 
     }
@@ -22,6 +28,7 @@ export class Office extends Component {
 
     public startPaperWork() : void {
         this.paperworkNode.active = false;
+        this.generalJournal.active = true;
     }
 
     update(deltaTime: number) {

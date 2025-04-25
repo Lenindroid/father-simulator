@@ -1,7 +1,6 @@
 import { _decorator, Component, Label, Node } from 'cc';
 const { ccclass, property } = _decorator;
 type Period = 'AM' | 'PM';
-export type Day = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY';
 type Clock = {
     period: Period,
     hour: number,
@@ -10,13 +9,6 @@ type Clock = {
 
 @ccclass('ProgressDisplayController')
 export class ProgressDisplayController extends Component {
-    @property({
-        type: Label, 
-        tooltip: "Here goes the day label"
-    })
-    public dayLabel: Label;
-    public day : Day = 'MONDAY';
-
 
     @property({
         type: Label, 
@@ -37,7 +29,6 @@ export class ProgressDisplayController extends Component {
     public money : number = 0;
 
     start() {
-        this.dayLabel.string = this.day;
         this.hourLabel.string = `${this.clock.hour.toString().padStart(2, '0')}:${this.clock.minute.toString().padStart(2, '0')} ${this.clock.period}`;
         this.moneyLabel.string = "$" + this.money;
     }

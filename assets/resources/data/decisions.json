@@ -2,7 +2,6 @@
     {
         "id": "first-decision",
         "location": "bedroom",
-        "day": "TUESDAY",
         "hour": 6,
         "minute": 0,
         "question": "Would you like to wait for your son to wake up?",
@@ -23,7 +22,6 @@
     {
         "id": "peku-decision",
         "location": "internet",
-        "day": "MONDAY",
         "hour": 10,
         "minute": 12,
         "question": "Would you like to say 'peku' to Nancy?",

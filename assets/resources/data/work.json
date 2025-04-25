@@ -1,0 +1,19 @@
+[
+    {
+        "accounts": ["Cash", "Banks", "", ""],
+        "credits": [0, 0, 0, 0],
+        "debits": [0, 0, 0, 0],
+        "missingDebitIndex": 0,
+        "missingCreditIndex": -1,
+        "options": [0, 0, 0]
+
+    },
+    {
+        "accounts": ["Banks", "Cash", "", ""],
+        "credits": [5, 0, 0, 0],
+        "debits": [0, 1000, 0, 0],
+        "missingDebitIndex": -1,
+        "missingCreditIndex": 2,
+        "options": [5, 0, 0]
+    }
+]

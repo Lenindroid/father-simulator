@@ -1,5 +1,5 @@
 import { _decorator, Button, Component, JsonAsset, Label, Node, resources, Sprite, SpriteFrame } from 'cc';
-import { ProgressDisplayController, Day } from './ProgressDisplayController';
+import { ProgressDisplayController } from './ProgressDisplayController';
 import { PlayerStats } from './PlayerStats';
 import { Office } from './Office';
 const { ccclass, property } = _decorator;
@@ -20,7 +20,6 @@ interface TimeRange {
 }
 
 interface RequiredStats {
-    day: Day[];
     pm: TimeRange;
     am: TimeRange;
     minimumWork: number;
@@ -149,7 +148,6 @@ export class Location extends Component {
 
     checkRoom(room : Room) : boolean {
         if (room.locked) return false;
-        if (!(room.requiredStats.day.includes(this.progressScript.day))) return false;
 
         if (this.progressScript.clock.period == 'AM') {
             if (!(this.progressScript.clock.hour >= room.requiredStats.am.minimum && this.progressScript.clock.hour < room.requiredStats.am.maximum)) {

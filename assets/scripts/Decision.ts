@@ -3,8 +3,6 @@ import { PlayerStats } from './PlayerStats';
 import { ProgressDisplayController } from './ProgressDisplayController';
 const { ccclass, property } = _decorator;
 
-type Day = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY';
-
 interface Stats {
     family: number;
     work: number;
@@ -14,7 +12,6 @@ interface Stats {
 interface DecisionObject {
     id: string;
     location: string;
-    day: Day; 
     hour: number;
     minute: number;
     question: string;
