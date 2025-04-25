@@ -9,7 +9,7 @@
 
     },
     {
-        "accounts": ["Banks", "Cash", "", ""],
+        "accounts": ["Banks", "Cash", "       Cash", ""],
         "credits": [5, 0, 0, 0],
         "debits": [0, 1000, 0, 0],
         "missingDebitIndex": -1,
