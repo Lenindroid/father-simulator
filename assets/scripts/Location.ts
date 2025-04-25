@@ -1,6 +1,7 @@
 import { _decorator, Button, Component, JsonAsset, Label, Node, resources, Sprite, SpriteFrame } from 'cc';
 import { ProgressDisplayController, Day } from './ProgressDisplayController';
 import { PlayerStats } from './PlayerStats';
+import { Office } from './Office';
 const { ccclass, property } = _decorator;
 
 type LocationButtonData = {
@@ -61,6 +62,13 @@ export class Location extends Component {
     })
     private progressNode : Node;
     private progressScript : ProgressDisplayController;
+
+    @property({
+        type: Node,
+        tooltip: 'The office manager script'
+    })
+    private officeNode : Node;
+    private officeScript : Office;
 
     @property({
         type: Node,
@@ -132,6 +140,7 @@ export class Location extends Component {
         );
         this.progressScript = this.progressNode.getComponent(ProgressDisplayController);
         this.playerStatsScript = this.playerStatsNode.getComponent(PlayerStats);
+        this.officeScript = this.officeNode.getComponent(Office);
     }
 
     update(deltaTime: number) {
@@ -227,6 +236,7 @@ export class Location extends Component {
                     return;
                 }
                 this.backgroundImageSprite.spriteFrame = spriteFrame;
+                if (id == 'office') this.officeScript.showPaperWork();
             });
         });
     }
